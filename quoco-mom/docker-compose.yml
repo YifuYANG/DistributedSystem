@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  broker:
+    image: rmohr/activemq:latest
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+
+  auldfellas:
+    image: auldfellas
+    container_name: ws_auldfellas
+    build: AuldFellas
+    network_mode: "service:broker"
+    depends_on:
+      - broker
+
+  girlpower:
+    image: girlpower
+    container_name: ws_girlpower
+    build: GirlPower
+    network_mode: "service:broker"
+    depends_on:
+        - broker
+
+
+  dodgydrivers:
+    image: dodgydrivers
+    container_name: ws_dodgydrivers
+    build: DodgyDrivers
+    network_mode: "service:broker"
+    depends_on:
+        - broker
+
