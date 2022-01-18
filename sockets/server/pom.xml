@@ -1,0 +1,61 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ie.ucd</groupId>
+    <artifactId>server</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <main.class>EchoServer</main.class>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    
+    <build>
+        <plugins>
+            <!-- Plugin used to run Java programs -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+
+            <!-- Plugins for packaging the code as an Executable JAR and deploying it as a Docker image -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${main.class}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
+<!--                <version>1.4.10</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--&lt;!&ndash;                        <imageName>server</imageName>&ndash;&gt;-->
+<!--                        <id>tag-latest</id>-->
+<!--                        <goals>-->
+<!--                            <goal>build</goal>-->
+<!--                            <goal>tag</goal>-->
+<!--                            <goal>push</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <repository>${project.artifactId}</repository>-->
+<!--                            <tag>latest</tag>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+</project>
