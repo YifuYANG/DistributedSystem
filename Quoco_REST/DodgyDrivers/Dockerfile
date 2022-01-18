@@ -1,0 +1,3 @@
+FROM openjdk:8-jre-alpine
+COPY target/DodgyDrivers-0.0.1.jar /DodgyDrivers-0.0.1.jar
+CMD /usr/bin/java -jar /DodgyDrivers-0.0.1.jar

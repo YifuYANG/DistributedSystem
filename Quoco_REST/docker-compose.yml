@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+
+    auldfellas:
+        image: auldfellas
+        container_name: auldfellas_rest
+        build: AuldFellas
+        network_mode: "service:broker"
+        depends_on:
+            - broker
+
+    girlpower:
+        image: girlpower
+        container_name: girlpower_rest
+        build: GirlPower
+        network_mode: "service:broker"
+        depends_on:
+            - broker
+
+    dodgydrivers:
+        image: dodgydrivers
+        container_name: dodgydrivers_rest
+        build: DodgyDrivers
+        network_mode: "service:broker"
+        depends_on:
+            - broker
+
+    broker:
+        image: broker
+        container_name: broker_rest
+        build: Broker
+        network_mode: host
+
+    client:
+        image: client
+        container_name: client_rest
+        build: Client
+        network_mode: "service:broker"
+        depends_on:
+            - auldfellas
+            - dodgydrivers
+            - girlpower
+            - broker
