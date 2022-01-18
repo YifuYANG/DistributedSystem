@@ -1,0 +1,26 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>Labs</groupId>
+    <artifactId>Lab_2</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>Core</module>
+        <module>AuldFellas</module>
+        <module>DodgyDrivers</module>
+        <module>GirlPower</module>
+        <module>Broker</module>
+        <module>Client</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
